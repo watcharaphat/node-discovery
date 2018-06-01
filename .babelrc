@@ -1,0 +1,11 @@
+{
+  "env": {},
+  "ignore": [],
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-runtime"
+  ],
+  "presets": [
+    "env"
+  ]
+}

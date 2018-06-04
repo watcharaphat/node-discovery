@@ -5,7 +5,7 @@ const router = express.Router();
 
 const ips = [];
 
-router.get('/join/:ip', (req, res, err) => {
+router.get('/ip/add/:ip', (req, res, err) => {
   const ip = req.params.ip;
   let result = false;
 
@@ -17,7 +17,7 @@ router.get('/join/:ip', (req, res, err) => {
   res.json({result});
 });
 
-router.get('/ip', (req, res, err) => {
+router.get('/ip/list', (req, res, err) => {
   res.json({ip: ips});
 });
 

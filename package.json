@@ -8,7 +8,9 @@
   },
   "author": "watcharaphat <watcharaphat.3166@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.3"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",

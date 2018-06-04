@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "build": "./node_modules/.bin/babel src -d build --source-maps inline",
-	"start": "npm run build && node build/server.js",
+    "start": "node build/server.js",
     "dev": "nodemon src/server.js --exec babel-node"
   },
   "author": "watcharaphat <watcharaphat.3166@gmail.com>",

@@ -21,6 +21,11 @@ router.get('/ip/list', (req, res, err) => {
   res.json({ip: ips});
 });
 
+router.get('/ip/clear', (req, res, err) => {
+  ips.length = 0;
+  res.json({result: true});
+});
+
 app.use(router);
 
 console.log('server is listening at port 3000');

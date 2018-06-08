@@ -3,26 +3,61 @@ import express from 'express';
 const app = express();
 const router = express.Router();
 
-const ips = [];
+// api-node
+let apiAddresses = [];
 
-router.get('/ip/add/:ip', (req, res, err) => {
+router.get('/api-ip/add/:ip', (req, res, err) => {
   const ip = req.params.ip;
   let result = false;
 
-  if (ips.indexOf(ip) === -1) {
-    ips.push(ip);
+  if (apiAddresses.indexOf(ip) === -1) {
+    apiAddresses.push(ip);
     result = true;
   }
 
   res.json({result});
 });
 
-router.get('/ip/list', (req, res, err) => {
-  res.json({ip: ips});
+router.get('/api-ip/list', (req, res, err) => {
+  res.json({ip: apiAddresses});
 });
 
-router.get('/ip/clear', (req, res, err) => {
-  ips.length = 0;
+router.get('/api-ip/remove/:ip', (req, res, err) => {
+  apiAddresses = apiAddresses.filter((ip) => ip !== req.params.ip);
+  res.json({result: true});
+});
+
+router.get('/api-ip/clear', (req, res, err) => {
+  apiAddresses.length = 0;
+  res.json({result: true});
+});
+
+// abci-node
+let abciAddresses = [];
+
+router.get('/abci-ip/add/:ip', (req, res, err) => {
+  const ip = req.params.ip;
+  let result = false;
+
+  if (abciAddresses.indexOf(ip) === -1) {
+    abciAddresses.push(ip);
+    result = true;
+  }
+
+  res.json({result});
+});
+
+router.get('/abci-ip/list', (req, res, err) => {
+  res.json({ip: abciAddresses});
+});
+
+router.get('/abci-ip/remove/:ip', (req, res, err) => {
+  abciAddresses = abciAddresses.filter((ip) => ip !== req.params.ip);
+  res.json({result: true});
+});
+
+router.get('/abci-ip/clear', (req, res, err) => {
+  abciAddresses.length = 0;
   res.json({result: true});
 });
 

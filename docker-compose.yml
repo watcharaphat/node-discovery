@@ -2,7 +2,7 @@ version: '2'
 
 services:
   node-discovery:
-    image: node-discovery
+    image: watcharaphat/node-discovery-server
     build: .
     environment:
       NODE_ENV: production

@@ -61,6 +61,35 @@ router.get('/abci-ip/clear', (req, res, err) => {
   res.json({result: true});
 });
 
+// host
+let hostAddresses = [];
+
+router.get('/host-ip/add/:ip', (req, res, err) => {
+  const ip = req.params.ip;
+  let result = false;
+
+  if (hostAddresses.indexOf(ip) === -1) {
+    hostAddresses.push(ip);
+    result = true;
+  }
+
+  res.json({result});
+});
+
+router.get('/host-ip/list', (req, res, err) => {
+  res.json({ip: hostAddresses});
+});
+
+router.get('/host-ip/remove/:ip', (req, res, err) => {
+  hostAddresses = hostAddresses.filter((ip) => ip !== req.params.ip);
+  res.json({result: true});
+});
+
+router.get('/host-ip/clear', (req, res, err) => {
+  hostAddresses.length = 0;
+  res.json({result: true});
+});
+
 app.use(router);
 
 console.log('server is listening at port 3000');
